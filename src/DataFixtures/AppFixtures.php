@@ -21,7 +21,6 @@ class AppFixtures extends Fixture
     {
         $user = new User();
         $user->setEmail('johndoe@local.test');
-
         $password = $this->hasher->hashPassword($user, 'test');
         $user->setPassword($password);
 
