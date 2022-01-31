@@ -37,6 +37,11 @@ class Profile
      */
     private array $skills = [];
 
+    public function __construct()
+    {
+        $this->id = Uuid::v4();
+    }
+
     public function getId(): Uuid
     {
         return $this->id;

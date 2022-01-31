@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Profile;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -23,6 +24,11 @@ class AppFixtures extends Fixture
         $user->setEmail('johndoe@local.test');
         $password = $this->hasher->hashPassword($user, 'test');
         $user->setPassword($password);
+
+        $profile = new Profile();
+        $profile->setDisplayName('John Doe');
+
+        $user->setProfile($profile);
 
         $manager->persist($user);
         $manager->flush();
